@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="template.xhtml">
+
+    <ui:define name="content">
+        <!-- Tu contenido dinámico aquí -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-3">Mi Contenido XD</h1>
+                    <h:link outcome="/categoria/index" value="Categoria" /> <i class="fa-solid fa-house"></i> <br/>
+                    <h:link outcome="/categoria/create" value="Categoria create" /><br/>
+                    <h:link outcome="/categoria/edit" value="Categoria edit" /><br/>
+                    <h:link outcome="/categoria/delete" value="Categoria delete" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

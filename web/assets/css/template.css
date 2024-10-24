@@ -1,0 +1,63 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabecera */
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Contenedor para alinear elementos a la derecha */
+.right-header {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    align-items: center;
+}
+
+.sidebar-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Opciones de usuario */
+.user-options {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+/* Contenido principal */
+.content {
+    margin-top: 70px; /* Para evitar que el contenido se superponga con la cabecera */
+    padding: 20px;
+}
+
+/* Pie de página */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Ajustar el contenido para que no quede debajo del footer */
+.content {
+    min-height: calc(100vh - 120px); /* Altura ajustada por la cabecera y el pie */
+}

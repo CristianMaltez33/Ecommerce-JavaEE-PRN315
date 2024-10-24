@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+              rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+        <style>
+            .main-container {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .content-wrapper {
+                flex: 1 0 auto;
+            }
+
+            .footer {
+                flex-shrink: 0;
+            }
+
+            /* Estilos adicionales para el sidebar y header */
+            .sidebar-button {
+                margin: 10px;
+            }
+
+            .user-options {
+                background: none !important;
+                border: none !important;
+                margin: 10px;
+            }
+
+            .p-sidebar {
+                padding: 1rem;
+            }
+
+            .p-sidebar .p-link {
+                display: block;
+                padding: 0.5rem 0;
+                text-decoration: none;
+            }
+
+            .btn.btn-success.rounded-circle.custom-button {
+                all: unset;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="main-container">
+                <!-- Header -->
+                <header>
+                    <div class="row">
+                        <div class="col-auto me-auto mt-1 ms-2">
+                            <p:commandButton value="☰" class="rounded-pill btn btn-success" oncomplete="PF('sidebar').show();" />
+                        </div>
+                        <div class="col-auto">
+                            <p:menubar styleClass="user-options">
+                                <p:submenu label="Usuario" icon="pi pi-user">
+                                    <p:menuitem value="Editar Usuario" icon="pi pi-user-edit"/>
+                                    <p:menuitem value="Cerrar Sesión" icon="pi pi-sign-out"/>
+                                </p:submenu>
+                            </p:menubar>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Sidebar -->
+                <p:sidebar id="sidebar" 
+                           widgetVar="sidebar" 
+                           position="left" 
+                           style="width: 250px;" 
+                           styleClass="bg-white">
+
+                    <h3 class="display-3">Menú</h3>
+                    <p:separator />
+
+                    <p:menu style="width: 100%; border: none;">
+                        <p:menuitem value=" Index" outcome="/index" icon="fas fa-home"/>
+
+
+                        <p:menuitem value=" Categorías" outcome="/categoria/index" icon="fas fa-list"/>
+                        <p:menuitem value=" Roles" outcome="/rol/index" icon="fas fa-user-tag"/>
+                        <p:menuitem value=" Métodos de Pago" outcome="/pago/index" icon="fas fa-credit-card"/>
+                        <p:menuitem value=" Usuarios" outcome="/usuarios/index" icon="fas fa-user"/>
+
+
+                        <p:menuitem value=" Publicaciones" outcome="/publicacion/index" icon="fas fa-newspaper"/>
+                        <p:menuitem value=" Pedidos" outcome="/pedidos/index" icon="fas fa-shopping-cart "/>
+
+                    </p:menu>
+
+                </p:sidebar>
+
+                <!-- Contenido principal -->
+                <div class="content-wrapper container">
+                    <ui:insert name="content">
+                        <!-- Aquí irá el contenido dinámico -->
+                    </ui:insert>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer bg-dark text-light py-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col text-center">
+                                <p class="mb-0">© 2024 Tu Empresa. Todos los derechos reservados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </h:form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </h:body>
+</html>

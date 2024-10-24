@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template.xhtml">
+
+    <ui:define name="content">
+        <!-- Tu contenido dinámico aquí -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h:outputText value="Crear Categoria" />
+                </div>
+            </div>
+
+            <div class="row">
+                <h:form>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="categoria-titulo" value="Titulo:" styleClass="me-2"/>
+                            <p:inputText id="categoria-titulo" value="#{categoriaBean.categoria.titulo}"/>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="categoria-descripcion" value="Descripcion:" styleClass="me-2"/>
+                            <p:inputText id="categoria-descripcion" value="#{categoriaBean.categoria.descripcion}"/>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="categoria-estado" value="Estado:" styleClass="me-2"/>
+                            <h:selectBooleanCheckbox id="categoria-estado" value="#{categoriaBean.categoria.estado}" />
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:commandButton value="Crear" action="#{categoriaBean.create}" ajax="false" class="btn btn-success me-3"/>
+                            <p:linkButton value="Cancelar" href="/categoria/index" class="btn btn-danger"/>
+                        </div>
+                    </div>
+
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

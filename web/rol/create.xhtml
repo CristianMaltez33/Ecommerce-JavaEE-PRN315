@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template.xhtml">
+
+    <ui:define name="content">
+        <!-- Tu contenido dinámico aquí -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h:outputText value="Crear Rol" />
+                </div>
+            </div>
+
+            <div class="row">
+                <h:form>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="rol-titulo" value="Titulo:" styleClass="me-2"/>
+                            <p:inputText id="rol-titulo" value="#{rolBean.rol.titulo}"/>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="rol-descripcion" value="Descripcion:" styleClass="me-2"/>
+                            <p:inputText id="rol-descripcion" value="#{rolBean.rol.descripcion}"/>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="rol-estado" value="Estado:" styleClass="me-2"/>
+                            <h:selectBooleanCheckbox id="rol-estado" value="#{rolBean.rol.estado}" />
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:commandButton value="Crear" action="#{rolBean.create}" ajax="false" class="btn btn-success me-3"/>
+                            <p:linkButton value="Cancelar" href="/pago/index" class="btn btn-danger"/>
+                        </div>
+                    </div>
+
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

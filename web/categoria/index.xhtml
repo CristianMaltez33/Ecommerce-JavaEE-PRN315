@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/template.xhtml">
+
+    <ui:define name="content">
+        <div class="container">
+            <div class="row justify-content-between align-items-center mb-3">
+                <div class="col-auto">
+                    <h2 class="display-5">Categorías</h2>
+                </div>
+                <div class="col-auto">
+                    <p:button value="Crear Categoría" 
+                              outcome="/categoria/create" 
+                              icon="fas fa-plus"
+                              class="btn btn-success"/>
+                </div>
+            </div>
+
+            <p:dataTable id="categorias"
+                         var="cat" 
+                         value="#{categoriaBean.categorias}"
+                         paginator="true" 
+                         rows="10"
+                         paginatorPosition="bottom"
+                         emptyMessage="No se encontraron categorías"
+                         styleClass="mt-3">
+
+                <p:column headerText="Título">
+                    <h:outputText value="#{cat.titulo}" />
+                </p:column>
+
+                <p:column headerText="Descripción">
+                    <h:outputText value="#{cat.descripcion}" />
+                </p:column>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{cat.estado ? 'Activo' : 'Inactivo'}" />
+                </p:column>
+                <p:column headerText="Acciones" style="width:100px;">
+                    <div class="d-flex gap-2">
+                        <p:button icon="fas fa-edit" 
+                                  outcome="/categoria/edit"
+                                  styleClass="btn btn-warning">
+                            <f:param name="categoriaId" value="#{cat.id}" />
+                        </p:button>
+
+                        <p:commandButton icon="fas fa-trash" 
+                                         styleClass="btn btn-danger"
+                                         action="#{categoriaBean.eliminar(cat)}"
+                                         update="categorias"
+                                         title="Eliminar">
+                            <p:confirm header="Confirmación" 
+                                       message="¿Estás seguro de eliminar esta categoría?" 
+                                       icon="pi pi-info-circle"/>
+                        </p:commandButton>
+                    </div>
+                </p:column>
+            </p:dataTable>
+
+            <!-- Diálogo de confirmación -->
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="auto">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat btn btn-warning"/>
+                    </div>
+                    <div class="col-4">
+                        <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes btn btn-danger" />
+                    </div>
+                </div>
+            </p:confirmDialog>
+        </div>
+    </ui:define>
+</ui:composition>
