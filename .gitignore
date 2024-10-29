@@ -1,3 +1,2 @@
 build/*
-glassfish-resources.xml
 web/WEB-INF/glassfish-resources.xml
