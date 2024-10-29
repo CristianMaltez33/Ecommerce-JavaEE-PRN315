@@ -106,6 +106,14 @@ public class Usuario implements Serializable {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+		public void setUsername(String string) {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		}
+
+		public void setRole(String string) {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		}
     
     
 
