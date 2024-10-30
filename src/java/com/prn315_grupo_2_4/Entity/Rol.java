@@ -5,26 +5,18 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 
-@Entity
-@Table( name = "rol_ctl" )
-public class Rol implements Serializable {
+public class Rol {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
     
-    @Column( name = "titulo" )
     @NotNull
     @Size(min = 1, max = 50)
     private String titulo;
     
-    @Column( name = "descripcion" )
     @NotNull
     @Size(min = 1, max = 250)
     private String descripcion;
     
-    @Column( name = "estado" )
     private boolean estado = true;
 
     public Rol() {

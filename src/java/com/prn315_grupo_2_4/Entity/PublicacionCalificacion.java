@@ -4,13 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-@Entity
-@Table( name = "publicacion_calificacion_mtn" )
-public class PublicacionCalificacion implements Serializable {
+public class PublicacionCalificacion {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
     
     @ManyToOne  // Relación muchos a uno
@@ -21,7 +16,6 @@ public class PublicacionCalificacion implements Serializable {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
     
-    @Column(name = "calificacion")
     private int calificacion = 5;
 
     public PublicacionCalificacion() {

@@ -4,26 +4,18 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-@Entity
-@Table(name = "categoria_ctl")
-public class Categoria implements Serializable {
+public class Categoria {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "titulo")
     @NotNull
     @Size(min = 1, max = 50)
     private String titulo;
 
-    @Column(name = "descripcion")
     @NotNull
     @Size(min = 1, max = 250)
     private String descripcion;
 
-    @Column(name = "estado")
     private boolean estado = true;
 
     public Categoria() {

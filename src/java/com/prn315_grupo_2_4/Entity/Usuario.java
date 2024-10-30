@@ -4,39 +4,29 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-@Entity
-@Table(name = "usuario_mtn")
-public class Usuario implements Serializable {
+public class Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
     
     @ManyToOne  // Relación muchos a uno
     @JoinColumn(name = "id_rol", nullable = false)  // Crea la columna foreign key en 'usuarios'
     private Rol rol;
 
-    @Column(name = "nombres")
     @NotNull
     @Size(min = 1, max = 110)
     private String nombres;
 
-    @Column(name = "apellidos")
     @NotNull
     @Size(min = 1, max = 110)
     private String apellidos;
 
-    @Column(name = "correo", unique = true)
     @NotNull
     @Size(min = 1, max = 110)
     private String correo;
     
-    @Column(name = "password_", unique = true, columnDefinition = "TEXT")
     @NotNull
     private String password;
     
-    @Column( name = "estado" )
     private boolean estado = true;
 
     public Usuario() {

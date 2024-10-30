@@ -12,6 +12,15 @@
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="javax.persistence.query.timeout" value="30000"/>
+      <property name="hibernate.ejb.naming_strategy" value="org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy"/>
+      <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
+      <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/DataBaseProject"/>
+      <property name="hibernate.connection.username" value="root"/>
+      <property name="hibernate.connection.password" value="root"/>
+
+
     </properties>
   </persistence-unit>
 </persistence>

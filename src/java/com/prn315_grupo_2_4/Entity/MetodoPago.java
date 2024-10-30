@@ -4,26 +4,18 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-@Entity
-@Table( name = "metodo_pago_ctl" )
-public class MetodoPago implements Serializable {
+public class MetodoPago {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
     
     @NotNull
     @Size(min = 1, max = 50)
-    @Column( name = "titulo" )
     private String titulo;
     
     @NotNull
     @Size(min = 1, max = 250)
-    @Column( name = "descripcion" )
     private String descripcion;
     
-    @Column( name = "estado" )
     private boolean estado = true;
 
     public MetodoPago() {

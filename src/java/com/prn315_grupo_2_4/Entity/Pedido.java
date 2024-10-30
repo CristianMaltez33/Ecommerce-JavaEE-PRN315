@@ -14,13 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table( name = "pedido_mtn" )
-public class Pedido implements Serializable {
+public class Pedido {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
     
     @ManyToOne  // Relación muchos a uno
@@ -35,18 +30,14 @@ public class Pedido implements Serializable {
     @JoinColumn(name = "id_metodo_pago", nullable = false)
     private MetodoPago metodoPago;
     
-    @Column(name = "calificacion")
     private int cantidad = 0;
     
-    @Column( name = "entregado" )
     private boolean entregado = false;
     
     @Temporal(TemporalType.DATE)
-    @Column(name = "fecha_publicacion")
     private Date  fechaPedido = new Date();
     
     @Temporal(TemporalType.DATE)
-    @Column(name = "fecha_entrega", nullable = true)
     private Date fechaEntrega;
 
     public Pedido() {

@@ -1,12 +1,41 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
-
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template.xhtml">
+    <ui:define name="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h:outputText value="Lista de Publicaciones" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <h:form>
+                    <p:dataTable value="#{publicacionBean.listaPublicaciones}" var="publicacion">
+                        <p:column headerText="Título">
+                            <h:outputText value="#{publicacion.titulo}" />
+                        </p:column>
+                        <p:column headerText="Descripción">
+                            <h:outputText value="#{publicacion.descripcion}" />
+                        </p:column>
+                        <p:column headerText="Estado">
+                            <h:outputText value="#{publicacion.estado ? 'Activo' : 'Inactivo'}" />
+                        </p:column>
+                        <p:column headerText="Acciones">
+                            <p:commandButton value="Editar" action="#{publicacionBean.editar(publicacion)}"
+                                             update=":form" />
+                            <p:commandButton value="Eliminar" action="#{publicacionBean.eliminar(publicacion)}"
+                                             update=":form" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </div>
+            <div class="row mt-3">
+                <p:commandButton value="Nueva Publicación" action="/publicacion/crear" />
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

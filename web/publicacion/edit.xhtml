@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template.xhtml">
+    <ui:define name="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h:outputText value="Editar Publicación" />
+                </div>
+            </div>
+            <div class="row">
+                <h:form>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="publicacion-titulo" value="Título:" styleClass="me-2"/>
+                            <p:inputText id="publicacion-titulo" value="#{publicacionBean.publicacion.titulo}"/>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="publicacion-descripcion" value="Descripción:" styleClass="me-2"/>
+                            <p:inputTextarea id="publicacion-descripcion" value="#{publicacionBean.publicacion.descripcion}" rows="5"/>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:outputLabel for="publicacion-estado" value="Estado:" styleClass="me-2"/>
+                            <h:selectBooleanCheckbox id="publicacion-estado" value="#{publicacionBean.publicacion.estado}" />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <p:commandButton value="Guardar" action="#{publicacionBean.guardar}" ajax="false" class="btn btn-success me-3"/>
+                            <p:linkButton value="Cancelar" href="/publicacion/index" class="btn btn-danger"/>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
